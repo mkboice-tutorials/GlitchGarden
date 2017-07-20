@@ -10,7 +10,14 @@ public class LevelManager : MonoBehaviour
 
     public void Start()
     {
-        Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        if (autoLoadNextLevelAfter <= 0)
+        {
+            Debug.Log("Lelvel auto load disabled");
+        }
+        else
+        {
+            Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        }
     }
 
     public void LoadLevel(string name)
