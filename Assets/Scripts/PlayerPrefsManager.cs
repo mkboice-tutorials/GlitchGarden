@@ -12,7 +12,7 @@ public class PlayerPrefsManager : MonoBehaviour
 
     public static void SetMasterVolume(float volume)
     {
-        if (volume > 0f && volume < 1f)
+        if (volume >= 0f && volume <= 1f)
         {
             PlayerPrefs.SetFloat(MASTER_VOLUME_KEY, volume);
         }
@@ -54,7 +54,7 @@ public class PlayerPrefsManager : MonoBehaviour
 
     public static void SetDifficulity(float difficulity)
     {
-        if (difficulity >= 0f && difficulity <= 1f)
+        if (difficulity >= 1f && difficulity <= 3f)
         {
             PlayerPrefs.SetFloat(DIFFICULITY_KEY, difficulity);
         }
