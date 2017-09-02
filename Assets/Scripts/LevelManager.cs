@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     {
         if (autoLoadNextLevelAfter <= 0)
         {
-            Debug.Log("Lelvel auto load disabled");
+            Debug.Log("Level auto load disabled");
         }
         else
         {
