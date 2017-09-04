@@ -40,10 +40,25 @@ public class GameTimer : MonoBehaviour
         slider.value = Time.timeSinceLevelLoad / levelSeconds;
         if (Time.timeSinceLevelLoad >= levelSeconds && !isEndOfLevel)
         {
-            audioSource.Play();
-            isEndOfLevel = true;
-            winLabel.SetActive(true);
-            Invoke("LoadNextLevel", audioSource.clip.length);
+            HandleWinCondition();
+        }
+    }
+
+    void HandleWinCondition()
+    {
+        DestroyAllTaggedObjects();
+        audioSource.Play();
+        isEndOfLevel = true;
+        winLabel.SetActive(true);
+        Invoke("LoadNextLevel", audioSource.clip.length); // TODO: This is ignoring the load next level from the winLabel
+    }
+
+    void DestroyAllTaggedObjects()
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("destroyOnWin");
+        foreach (GameObject taggedObject in gameObjects)
+        {
+            Destroy(taggedObject);
         }
     }
 
