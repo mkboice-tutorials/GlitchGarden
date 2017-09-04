@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Defender : MonoBehaviour
 {
+    public int starCost = 100;
+
     private StarDisplay starDisplay;
 
     void Start()
@@ -11,7 +13,6 @@ public class Defender : MonoBehaviour
         starDisplay = GameObject.FindObjectOfType<StarDisplay>();
     }
 
-    // Only being used as a tag for now
     public void AddStars(int amount)
     {
         starDisplay.AddStars(amount);
